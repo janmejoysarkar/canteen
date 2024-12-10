@@ -3,42 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canteen Usage</title>
+    <title>Date vs Number Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 20px;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-            color: #333;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-            border: 2px solid #4CAF50;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .title {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #4CAF50;
-        }
-        .description {
-            font-size: 1em;
-            color: #666;
+        canvas {
+            max-width: 80%;
+            margin: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Canteen Usage</h1>
-        <p class="description">Welcome to the canteen usage page. Please follow the guidelines for efficient use of the canteen facilities.</p>
-    </div>
+    <h1>Date vs Number Graph</h1>
+    <canvas id="myChart"></canvas>
+    
+    <script>
+        // Function to fetch and parse data from a text file
+        async function fetchData() {
+            const response = await fetch('data.txt'); // Make sure data.txt is in the same folder
+            const text = await response.text();
+            const lines = text.trim().split('\n');
+            const dates = [];
+            const numbers = [];
+            lines.forEach(line => {
+                const [date, number] = line.split(',');
+                dates.push(date.trim());
+                numbers.push(Number(number.trim()));
+            });
+            return { dates, numbers };
+        }
+
+        // Function to create the chart
+        async function createChart() {
+            const data = await fetchData();
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.dates,
+                    datasets: [{
+                        label: 'Number',
+                        data: data.numbers,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 1,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Number'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Run the function to create the chart
+        createChart();
+    </script>
 </body>
 </html>
