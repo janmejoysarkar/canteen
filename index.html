@@ -1,83 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date vs Number Graph</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 0;
-        }
-        canvas {
-            max-width: 80%;
-            margin: auto;
-            display: block;
-        }
-    </style>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+	<meta name="created" content="2024-12-13T10:58:38.899200675"/>
+	<meta name="changed" content="2024-12-13T11:12:26.276865689"/>
+	<style type="text/css">
+		@page { size: 16in 9in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent; background: transparent }
+		h1 { margin-bottom: 0.08in; background: transparent; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Sans CJK SC"; font-size: 18pt; font-weight: bold }
+		h1.ctl { font-family: "Noto Sans Devanagari"; font-size: 18pt; font-weight: bold }
+		a:link { color: #000080; text-decoration: underline }
+		a:visited { color: #800000; text-decoration: underline }
+	</style>
 </head>
-<body>
-    <h1>Date vs Number Graph</h1>
-    <canvas id="myChart"></canvas>
-    
-    <script>
-        // Function to fetch and parse data from a text file
-        async function fetchData() {
-            const response = await fetch('data.txt'); // Make sure data.txt is in the same folder
-            const text = await response.text();
-            const lines = text.trim().split('\n');
-            const dates = [];
-            const numbers = [];
-            lines.forEach(line => {
-                const [date, number] = line.split(',');
-                dates.push(date.trim());
-                numbers.push(Number(number.trim()));
-            });
-            return { dates, numbers };
-        }
-
-        // Function to create the chart
-        async function createChart() {
-            const data = await fetchData();
-            const ctx = document.getElementById('myChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.dates,
-                    datasets: [{
-                        label: 'Number',
-                        data: data.numbers,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderWidth: 1,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Date'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Number'
-                            },
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-
-        // Run the function to create the chart
-        createChart();
-    </script>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><h1 class="western" align="center">
+Welcome to IUCAA Canteen Webpage</h1>
+<p align="center"><font face="Liberation Sans, sans-serif">This text
+is aligned</font></p>
+<p align="center"> 
+<img src="index_html_3d9a5670.png" name="Image1" width="388" height="543" border="0"/>
+</p>
 </body>
 </html>
