@@ -31,5 +31,5 @@ if __name__=='__main__':
     plt.grid(alpha=0.5)
     plt.title(rf'Mean= {mean} kg | $\sigma$: {stdev} kg')
     plt.tight_layout()
-    if SAVE: plt.savefig('plot.png', dpi=150)
+    if SAVE: plt.savefig('plot.png', dpi=150); print("Plot updated")
     plt.close()
