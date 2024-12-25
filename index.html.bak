@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Spreadsheet Chart</title>
+</head>
+<body>
+    <center>
+    <h1>Food wasted at Dinner in IUCAA Canteen</h1>
+    <iframe 
+        width="708" 
+        height="437" 
+        seamless 
+        frameborder="0" 
+        scrolling="no" 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9obxZ9ppPqq5f-aImoYbO4hKPbh3Bc0jckInsW84nvelBqxW5MEMzJ4fpSwPqVEylgoxI8Ynz-0S/pubchart?oid=881782227&amp;format=interactive">
+    </iframe>
+    <p><strong>1 kg of food can feed 2 healthy adults for a day.</strong></p>
+    <p><a href="https://docs.google.com/spreadsheets/d/1MRLh51EqU7j14UnrJ9gkkYHEYxuECblUhoef7Wl4USQ/edit?usp=sharing">Download Data</a> | <a href="http://janmejoysarkar.github.io/canteen">janmejoysarkar.github.io/canteen</a></p>
+    </center>
+</body>
+</html>
